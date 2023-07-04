@@ -23,6 +23,10 @@ time, mark, audio, video {
 	font: inherit;
 	vertical-align: baseline;
 }
+
+a {
+	color: black;
+}
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -50,16 +54,18 @@ table {
 body {
 	max-width: 1140px;
 	margin:auto;
-	font-family: 'Work Sans' ;
+	font-family: 'Work Sans';
 	font-size: 14px;
+	background: #FFFEF8;
 }
 header {
 	display: flex;
 	justify-content: space-between;
-	margin: 50px 0
+	margin: 50px 0;
 }
+
 section {
-	margin: 50px 0
+	margin: 50px 0;
 }
 
 h1{
@@ -78,7 +84,7 @@ h1 > span {
 ;
 }
 
-h2{
+h2, .login_title{
 	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
@@ -88,19 +94,28 @@ nav ul {
 	display: flex;
 	align-items: center;
 	list-style-type: none;
-
 }
 nav li {
-	padding: 0 10px;
+	padding: 0px 20px;
 	font-size: 1.2em;
 }
 
-li:hover {
+li a {
+	text-decoration: none;
+}
+
+li a:hover {
 	color: #B1663C;
 }
+
+.icon_insta {
+	max-height: 1.3rem;
+}
+
 #introduction {
 	display: flex;
 	align-items: center;
+	margin: 9rem 0;
 }
 #introduction figure {
 	flex: 1
@@ -159,19 +174,22 @@ li:hover {
 
 .gallery img {
 	width: 100%;
-
 }
+
 #contact {
-	width: 50%;
+	width: 30%;
 	margin: auto;
 }
+
 #contact > * {
 	text-align: center;
 
 }
+
 #contact h2{
 	margin-bottom: 20px;
 }
+
 #contact form {
 	text-align: left;
 	margin-top:30px;
@@ -181,19 +199,21 @@ li:hover {
 
 #contact input {
 	height: 50px;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label {
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+#contact input[type="submit"] {
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -202,11 +222,301 @@ input[type="submit"]{
 	width: 180px;
 	text-align: center;
 	border-radius: 60px ;
+	cursor: pointer;
 }
 
 footer nav ul {
 	display: flex;
 	justify-content: flex-end;
-	margin: 2em
+	margin: 2em;
 }
 
+/*------ CSS Modal ------*/
+
+.d-none {
+	display: none;
+}
+
+.admin-bar {
+	background-color: black;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	gap: 15px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.admin-bar p {
+	color: white;
+	font-size: 0.9rem;
+}
+
+.admin-bar i {
+	color: white;
+	font-size: 1.2rem;
+}
+
+.admin-bar button {
+	border-radius: 60px;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+	font-size: 0.9rem;
+	font-weight: bold;
+}
+
+.adminHeader {
+	margin-top: 100px;
+}
+
+.edit-div {
+	display: flex;
+	align-items: baseline;
+	gap:10px;
+	font-size: 1rem;
+	cursor: pointer;
+}
+
+.portfolio_edit-div {
+	display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: baseline;
+    gap: 35px;
+	margin-bottom: 4rem;
+	margin-top: 6rem;
+}
+
+.main-pic_edit-div {
+	margin-left: 10%;
+	margin-top: 2%;
+}
+
+/**********************/
+
+.modal{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: white;
+    height: 48rem;
+    width: 30rem;
+    top: 10%;
+    left: 35%;
+    position: absolute;
+    border-radius: 10px;
+    padding-left: 90px;
+    padding-right: 90px;
+	overflow-y: auto;
+}
+
+.modal-wrapper, .modal-ajouter-wrapper {
+	padding-top: 45px;
+	margin-bottom: 20px;
+}
+
+.modal-CenterDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.modal-wrapper h3 {
+	font-weight: 400;
+	font-size: 1.6rem;
+}
+
+.modal-wrapper a {
+	font-family: 'Syne';
+	color: red;
+	cursor: pointer;
+}
+
+.close {
+	color: black;
+	font-size: 25px;
+	position: absolute;
+	right: 21px;
+    top: 8px;
+    padding: 11px;
+	cursor: pointer;
+}
+
+.miniGallery {
+	display: flex;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	flex-wrap: wrap;
+	gap: 10px;
+	margin-top: 3em;
+}
+
+.miniGallery figure {
+	display: flex;
+	flex-direction: column;
+	gap: 3px;
+	margin-bottom: 5px;
+	position: relative;
+	background-size: cover;
+}
+
+.miniGallery img {
+	height:100px;
+	flex: 1;
+	width: 5.5rem;
+}
+
+.miniGallery i {
+	z-index: 1;
+    position: absolute;
+    color: white;
+    background-color: black;
+    padding: 4px;
+	top: 5px;
+	right: 4px;
+    border-radius: 5px;
+	font-size: 0.7rem;
+	cursor: pointer;
+}
+
+.divider{
+	width: 100%;
+	margin-top: 25px;
+}
+
+.modalAddbtn {
+	font-family: 'Syne';
+	font-weight: 700;
+	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 237px;
+	text-align: center;
+	border-radius: 60px;
+	cursor: pointer;
+	padding: 0.8rem;
+}
+
+/**********************/
+
+.return-arrow {
+	font-size: 20px;
+	position: absolute;
+	left: 25px;
+    top: 15px;
+    padding: 11px;
+	cursor: pointer;
+}
+
+.modal-ajouter-wrapper h3{
+	font-size: 25px;
+	margin-bottom: 1rem;
+}
+
+.modalAdd_wrapperDiv {
+	background-color: #E8F1F6;
+	width: 100%;
+    height: 169px;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	border-radius: 3px;
+    margin-bottom: 40px;
+}
+
+#image-preview{
+	width: 200px;
+	height: 169px;
+	object-fit: contain;
+}
+
+.select-category{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	font-family: 'Work Sans';
+}
+
+.ajouter-btn{
+	width: 173px;
+	color: #306685;
+	background-color: #CBD6DC;
+	padding: 8px 20px;
+	border: transparent;
+	margin-bottom: 5px;
+	cursor: pointer;
+	border-radius: 50px;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+}
+
+.titre{
+	align-self: self-start;
+	margin-bottom: 1rem;
+	font-weight: bold;
+	margin-top: 1rem;
+}
+
+.titre-margin-top{
+	margin-top:2rem;
+}
+
+input, select{
+	border: transparent;
+    width: 100%;
+    height: 55px;
+    box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+.valider-btn{
+	width: 237px;
+	color: white;
+	height: 36px;
+	border-radius: 60px;
+	display: flex;
+    justify-content: center;
+	cursor: pointer;
+}
+
+.valider-btn_grey {
+	background-color : #A7A7A7;
+	cursor: not-allowed;
+}
+
+.valider-btn_green {
+	background-color: #1D6154;
+}
+
+
+.list-formats{
+	font-size: 10px;
+}
+
+form{
+	margin-top: 2rem;
+}
+
+.image-placeholder{
+	font-size:  46px;
+	margin-bottom: 10px;
+	color: #B9C5CC;
+}
+
+.ajouter-photo-img-div{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

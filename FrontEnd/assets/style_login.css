@@ -1,0 +1,30 @@
+header a {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.login_bold {
+    font-weight: bold;
+}
+
+.main-content {
+    margin: 12rem 0rem 15rem 0rem;
+}
+
+#contact a, .login_div {
+	display: flex;
+	justify-content: center;
+}
+
+.login_title{
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 30px;
+	color: #1D6154
+}
+
+.submit_error {
+	text-align: center;
+	color: red;
+	padding-top: 2rem;
+}
