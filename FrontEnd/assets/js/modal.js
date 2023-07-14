@@ -299,6 +299,7 @@ function createModalAddContent() {
 	const modalAdd_PictureValidateBtn = document.createElement("input");
 	modalAdd_PictureValidateBtn.setAttribute("type", "submit");
 	modalAdd_PictureValidateBtn.setAttribute("value", "Valider");
+	modalAdd_PictureValidateBtn.setAttribute("id", "valider_btn");
 	modalAdd_PictureValidateBtn.classList.add("titre-margin-top", "valider-btn", "valider-btn_grey");
 
 	modalAdd_PictureValidateBtn_Div.appendChild(modalAdd_PictureValidateBtn);
@@ -388,6 +389,11 @@ function createModalAddContent() {
 			modalAdd_formPreview.classList.add("d-none");
 			const modalAdd_formPictureDiv = document.getElementById("ajouter-photo");
 			modalAdd_formPictureDiv.classList.remove("d-none");
+
+			//*bouton valider en gris*//
+			const modalAdd_formBtn = document.getElementById("valider_btn");
+			modalAdd_formBtn.classList.add("valider-btn_grey");
+			modalAdd_formBtn.classList.remove("valider-btn_green");
 		}
 	});
 }
