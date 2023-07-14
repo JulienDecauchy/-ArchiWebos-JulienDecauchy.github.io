@@ -363,12 +363,31 @@ function createModalAddContent() {
 	modalAdd_PictureForm.addEventListener("submit", function(e) {
 		e.preventDefault();
 		if (modalAdd_PictureValidateBtn.classList.contains("valider-btn_green")) {
+			//*Ajout d'image*//
 			uploadWork();
+
+			//*retour 1er page Modale*//
 			const modalPrev_Hide = document.querySelector(".modal-ajouter-wrapper");
 			modalPrev_Hide.classList.add('d-none');
 			const modalPrev_Show = document.querySelector(".modal-wrapper");
 			modalPrev_Show.classList.remove('d-none');
+
 			e.preventDefault();
+
+			//*Reset form*//
+			const form = document.querySelector("form");
+			form.reset();
+
+			//*clear titre + image*//
+			const modalAdd_formTitleinput = document.getElementById("title");
+			if (modalAdd_formTitleinput.value !="") {
+				modalAdd_formTitleinput.value = "";
+			}
+
+			const modalAdd_formPreview = document.getElementById("image-preview-div");
+			modalAdd_formPreview.classList.add("d-none");
+			const modalAdd_formPictureDiv = document.getElementById("ajouter-photo");
+			modalAdd_formPictureDiv.classList.remove("d-none");
 		}
 	});
 }
