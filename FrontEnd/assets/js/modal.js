@@ -425,13 +425,70 @@ function uploadWork() {
 
 			const figureGalleryTrash = document.createElement("i");
 			figureGalleryTrash.classList.add("fa-regular", "fa-trash-can");
+			figureGallery.setAttribute("id", `list-${data.id}`);
 			figureGallery.appendChild(img);
 			figureGallery.appendChild(title);
 			gallery.appendChild(figureGallery);
 
 			const figureGalleryClone = figureGallery.cloneNode(true);
+			figureGalleryClone.setAttribute("id", `edit-${data.id}`);
 			figureGalleryClone.appendChild(figureGalleryTrash);
 			miniGallery.appendChild(figureGalleryClone);
+
+			/*Suppression des images du DOM */
+			figureGalleryTrash.addEventListener("click", function() {
+				const id = data.id;
+				deleteGalleryWorks(id);
+			});
+
+			const deleteGalleryWorks = async function (id) {
+				const response = await fetch(
+					"http://localhost:5678/api/works/" + id,
+					{
+						method: "DELETE",
+						headers: {
+							"content-type": "application/json",
+							Authorization: "Bearer " + window.localStorage.getItem("token"),
+						},
+					}
+				);
+				if (response.ok) {
+					document.getElementById(`list-${id}`).remove();
+					document.getElementById(`edit-${id}`).remove();
+				  } else {
+					console.error("Error deleting work");
+					alert("Echec lors de la suppression d'image(s)");
+				  }
+			};
+			
+			/*Supression de toutes les images du DOM */
+			const figureDeleteAll = document.getElementById("modal_deleteAll");
+			figureDeleteAll.addEventListener("click", function() {
+				const id_all = data.id;
+				deleteAllWorks(id_all);
+			});
+
+			const deleteAllWorks = async function (id) {
+				const response = await fetch(
+					"http://localhost:5678/api/works/" + id,
+					{
+						method: "DELETE",
+						headers: {
+							"content-type": "application/json",
+							Authorization: "Bearer " + window.localStorage.getItem("token"),
+						},
+					}
+				);
+				if (response.ok) {
+					while(id >= 0) {
+						document.getElementById(`list-${id}`).remove();
+						document.getElementById(`edit-${id}`).remove();
+					}
+			  	} else {
+					console.error("Error deleting work");
+					alert("Echec lors de la suppression d'image(s)");
+			  	}
+			}
 
 			console.log("Success:", data);
 		})
