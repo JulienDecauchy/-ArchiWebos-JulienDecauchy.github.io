@@ -423,11 +423,14 @@ function uploadWork() {
 			img.src = data.imageUrl;
 			title.innerText = data.title;
 
+			const figureGalleryTrash = document.createElement("i");
+			figureGalleryTrash.classList.add("fa-regular", "fa-trash-can");
 			figureGallery.appendChild(img);
 			figureGallery.appendChild(title);
 			gallery.appendChild(figureGallery);
 
 			const figureGalleryClone = figureGallery.cloneNode(true);
+			figureGalleryClone.appendChild(figureGalleryTrash);
 			miniGallery.appendChild(figureGalleryClone);
 
 			console.log("Success:", data);
