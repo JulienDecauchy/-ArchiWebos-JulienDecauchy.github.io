@@ -297,8 +297,8 @@ function createModalAddContent() {
 	modalAdd_PictureValidateBtn_Div.classList.add("modal-CenterDiv");
 
 	const modalAdd_PictureValidateBtn = document.createElement("input");
-	modalAdd_PictureValidateBtn.setAttribute("type", "submit")
-	modalAdd_PictureValidateBtn.setAttribute("value", "Valider")
+	modalAdd_PictureValidateBtn.setAttribute("type", "submit");
+	modalAdd_PictureValidateBtn.setAttribute("value", "Valider");
 	modalAdd_PictureValidateBtn.classList.add("titre-margin-top", "valider-btn", "valider-btn_grey");
 
 	modalAdd_PictureValidateBtn_Div.appendChild(modalAdd_PictureValidateBtn);
@@ -364,6 +364,10 @@ function createModalAddContent() {
 		e.preventDefault();
 		if (modalAdd_PictureValidateBtn.classList.contains("valider-btn_green")) {
 			uploadWork();
+			const modalPrev_Hide = document.querySelector(".modal-ajouter-wrapper");
+			modalPrev_Hide.classList.add('d-none');
+			const modalPrev_Show = document.querySelector(".modal-wrapper");
+			modalPrev_Show.classList.remove('d-none');
 			e.preventDefault();
 		}
 	});
